@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	<script src="jquery.js"></script>
+	<script src="index.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+<body>
+	<div id="wrap">
+		<h1>Test List <span>0</span></h1>
+
+		<ul id="tasks"></ul>
+		<ul id="done"></ul>
+	
+
+	<div id="new-task">
+		<input type="text"><button>+</button>
+	</div>
+	</div> <!--#wrap-->
+
+	<script>
+		$(document).ready(function(){
+			$("#new-task button").click(function() {
+				var task = $("#new-task input").val();
+
+				if (!task) return false;
+
+				buildTask(task).appendTo("tasks");
+				$("h1 span").html ( $("#tasks li").length );
+			});
+		});
+	</script>
+</body>
+</html>
